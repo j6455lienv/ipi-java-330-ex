@@ -1,7 +1,5 @@
-package com.ipiecoles.java.java320.model;
+package com.ipiecoles.java.java330.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 

@@ -1,9 +1,8 @@
-package com.ipiecoles.java.java320.repository;
+package com.ipiecoles.java.java330.repository;
 
-import com.ipiecoles.java.java320.model.Technicien;
+import com.ipiecoles.java.java330.model.Technicien;
 import org.springframework.data.domain.Slice;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 public interface TechnicienRepository extends BaseEmployeRepository<Technicien> {

@@ -1,3 +1,8 @@
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ include file="../tags/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -29,27 +34,52 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach items="${model.getContent()}" var="employe">
                     <tr>
-                        <th scope="row">Matricule</th>
-                        <td>Nom</td>
-                        <td>Prénom</td>
-                        <td><a href="">Détail</a></td>
+                        <th scope="row">${employe.matricule}</th>
+                        <td>${employe.nom}</td>
+                        <td>${employe.prenom}</td>
+                        <td><a href="/employes/${employe.id}">Détail</a></td>
                     </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                        Affichage des employés X à Y sur un total de Z</p>
+                        Affichage des employés ${start} à ${end} sur un total de ${total}</p>
                 </div>
                 <div class="col-lg-6">
                     <ul class="pagination">
-                        <li class= "disabled">&laquo;</li>
-                        <li><a href="#">Page X</a></li>
-                        <li><a href="">&raquo;</a></li>
+                        <c:choose>
+                            <c:when test="model.getNumber.equals(0)">
+                                <li class="disabled">&laquo;</li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="/employes?page=${page-1}&size=${size}&sortDirection=${sortDirection}&sortProperty=${sortProperty}">&laquo;</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                        </li>
+                        <li><a href="#">Page ${page+1}</a></li>
+
+                        <c:choose>
+                            <c:when test="model.totalPages==pageAffichage">
+                                <li class="disabled">&raquo;</li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="/employes?page=${page+1}&size=${size}&sortDirection=${sortDirection}&sortProperty=${sortProperty}">&raquo;</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<%@ include file="../tags/footer.jsp" %>

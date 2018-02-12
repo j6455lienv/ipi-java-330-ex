@@ -3,9 +3,9 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>Bienvenue dans l'interface de gestion des <span></span> employés !</h1>
+        <h1>Bienvenue dans l'interface de gestion des <span>${nbEmployes}</span> employés !</h1>
         <p>Cette application web est paramétrée pour communiquer avec une API REST accessible à l'adresse <code>http://localhost:5367</code>.</p>
-        <p>Il est nécessaire de développer les services webs nécessaires pour que cette application fonctionne. Voici l'ensemble des fonctionnalités :</p>
+        <p>Il est nécessaire de développer les services webs nécessaires pour que cette application fonctionne. Voici l'ensemble des fonctionnalités :</pEmploye>
         <ul class="list-group">
             <li class="list-group-item">
                 <h4 class="list-group-item-heading">1 - Compter le nombre d'employés</h4>
@@ -54,6 +54,5 @@
         </ul>
     </div>
 </div>
-
 <%@include file="tags/footer.jsp" %>
 
